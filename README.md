@@ -2,7 +2,6 @@
 
 npm install express redisnpm install express redis
 
-
 git init
 git remote add origin https://github.com/fotomain/redis1-express.git
 git add .

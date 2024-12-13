@@ -1,3 +1,4 @@
+
 const redis = require('redis');
 
 (async () => {
@@ -12,6 +13,6 @@ const redis = require('redis');
         console.log("=== message",JSON.parse(message))
     });
 
-    console.log("=== started")
+    console.log("=== started",Date.now())
 
 })();
