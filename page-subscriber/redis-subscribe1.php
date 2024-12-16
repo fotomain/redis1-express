@@ -19,20 +19,15 @@
 <div id="content"></div>
     <script>
         $(document).ready(function() {
-//             var socket = new io.Socket('localhost', {port: 3100, rememberTransport: false/*, transports: ['xhr-polling']*/});
 
                 var connectionOptions =  {
-//                             'Access-Control-Allow-Credentials': true,
-//                             "withCredentials": true,
                             "force new connection" : true,
                             "reconnectionAttempts": "Infinity",
                             "timeout" : 10000,
-//                             "transports" : ["websocket",'polling', 'flashsocket']
 
                         };
 
             var socket = io.connect('http://localhost:3100', connectionOptions );
-//             var socket = new io.Socket('localhost', {port: 3100, rememberTransport: false/*, transports: ['xhr-polling']*/});
             console.log("=== socket ",socket)
             var content = $('#content');
 
@@ -40,9 +35,10 @@
                     console.log("=== connect OK1")
             });
 
-            socket.on('messageTo1', function(message){
-                console.log("=== messageTo1 received ",message)
-                content.prepend(message + '<br />');
+            socket.on('channelExpressToClient1', function(message){
+                console.log("=== channelExpressToClient1 received ",message)
+                content.prepend(message);
+                content.prepend('<br />');
             }) ;
 
             socket.on('disconnect', function() {

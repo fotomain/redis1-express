@@ -40,10 +40,10 @@ io.on('connection', (socket) => {
 
     io.adapter(createAdapter(pubClient, subClient));
 
-    subClient.subscribe('my_channel',
+    subClient.subscribe('channelRedisToExpress',
         (params) => {
             console.log("=== message incomed ",params)
-            io.emit("messageTo1",params)
+            io.emit("channelExpressToClient1",params)
         });
 
 
